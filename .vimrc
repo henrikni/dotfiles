@@ -27,6 +27,7 @@ call vundle#begin('$HOME/vimfiles/bundle/')
 Plugin 'vundlevim/vundle.vim'
 
 " My bundles here:
+Plugin 'google/vim-maktaba'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
@@ -40,8 +41,13 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'drmikehenry/vim-fontsize'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 
 call vundle#end()
+
+" Required by vim-codefmt
+call glaive#Install()
 
 " ------------------------------------------------------------------------------
 " Reset vimrc augroup
@@ -83,7 +89,7 @@ set number              " show line numbers
 
 " We use a special font in order tp get characters required by the Airline
 " plugin
-set guifont=Consolas:h11:cANSI
+set guifont=Consolas:h10:cANSI
 
 " Chracter used for linebreaks
 set showbreak=→
@@ -214,6 +220,7 @@ let g:airline_theme = 'tomorrow'
 " ------------------------------------------------------------------------------
 
 let NERDTreeDirArrows=1
+let NERDTreeBookmarsFile = '$HOME/vimfiles/.NERDTreeBookmarks'
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -224,3 +231,9 @@ let g:ctrlp_cache_dir = '$HOME/vimfiles/ctrlp/'
 
 " Skip AS specific files
 set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*
+
+" ------------------------------------------------------------------------------
+" codefmt
+" ------------------------------------------------------------------------------
+
+Glaive codefmt plugin[mappings]
