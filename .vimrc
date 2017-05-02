@@ -13,15 +13,18 @@ set nocompatible
 set langmenu=en_US.UTF-8    " Sets the language of the menu (gvim)
 language messages en        " Sets the language of the messages / ui (vim)
 
+" Move viminfo
+set viminfo+=n$HOME/vimfiles/.viminfo
+
+" ------------------------------------------------------------------------------
+" Vundle configuration
+" ------------------------------------------------------------------------------
+
 " Required by Vundle, turned on after Vundle configuration is completed
 filetype off
 
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
 call vundle#begin('$HOME/vimfiles/bundle/')
-
-" ------------------------------------------------------------------------------
-" Vundle configuration
-" ------------------------------------------------------------------------------
 
 " Let Vundle manage Vundle
 Plugin 'vundlevim/vundle.vim'
@@ -43,6 +46,7 @@ Plugin 'drmikehenry/vim-fontsize'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 
@@ -73,7 +77,7 @@ filetype plugin indent on
 " ---------------
 set lines=40 columns=100
 
-set background=dark
+set background=light
 colorscheme PaperColor
 
 set scrolloff=2         " 2 lines above/below cursor when scrolling
@@ -83,16 +87,11 @@ set showmode            " show mode in status bar (insert/replace/...)
 set showcmd             " show typed command in status bar
 set ruler               " show cursor position in status bar
 set title               " show file in titlebar
-set go=                 " hide all ui elements except the menu
+set go=                 " hide all ui elements
 set colorcolumn=81      " show a column som we can track the line length at 80
 set number              " show line numbers
 
-" We use a special font in order tp get characters required by the Airline
-" plugin
-set guifont=Consolas:h10:cANSI
-
-" Chracter used for linebreaks
-set showbreak=→
+set guifont=Source_Code_Pro:h10
 
 " When you type the first tab, it will complete as much as possible, the second
 " tab hit will provide a list, the third and subsequent tabs will cycle through
@@ -145,11 +144,6 @@ set shortmess=a
 " this solves the "unable to open swap file" errors on Win7
 set dir=~/tmp,/var/tmp,/tmp,$TEMP
 set undodir=~/tmp,/var/tmp,/tmp,$TEMP
-
-" Look for tag def in a "tags" file in the dir of the current file, then for
-" that same file in every folder above the folder of the current file, until the
-" root.
-set tags=./tags;/
 
 " turns off all error bells, visual or otherwise
 set noerrorbells visualbell t_vb=
@@ -213,7 +207,8 @@ inoremap <C-U> <C-G>u<C-U>
 " Airline
 " ------------------------------------------------------------------------------
 
-let g:airline_theme = 'tomorrow'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'papercolor'
 
 " ------------------------------------------------------------------------------
 " NERDTree
