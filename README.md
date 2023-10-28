@@ -29,7 +29,6 @@ Create symlinks into the home directory:
 | `vim.conf`      | `~/.vimrc`         |
 | `tmux.conf`     | `~/.tmux.conf`     |
 | `bashrc.d/`     | `~/.bashrc.d/`     |
-| `git_prompt.sh` | `~/.git_prompt.sh` |
 
 If not already done, add the following to `~/.bashrc`:
 
